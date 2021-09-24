@@ -15,7 +15,7 @@ pipeline {
 		stage('TEST') {
 			steps{
                			echo "Choose Branch to test ${params.CHOOSE_BRANCH}"
-                		sh "echo $${params.CHOOSE_BRANCH}"
+                		sh "echo ${params.CHOOSE_BRANCH}"
                 		sh 'sleep 5'
             		}
 		}
