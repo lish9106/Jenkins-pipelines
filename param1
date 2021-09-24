@@ -1,0 +1,23 @@
+pipeline {
+	agent { label 'master' }
+	parameters {
+		string(name: 'NAME', description: 'Enter your name here')
+		choice(name: 'CHOOSE_BRANCH', choices: ['master','feature','hotfix'], description: 'Enter branch to test')
+	}
+	stages {
+		stage('BUILD') {
+			steps {
+				echo "NAME ${params.NAME}"
+				sh "echo ${params.NAME}"
+				sh 'sleep 5'
+			}	
+		}	
+		stage('TEST') {
+			steps{
+               			echo "Choose Branch to test ${params.CHOOSE_BRANCH}"
+                		sh "echo $${params.CHOOSE_BRANCH}"
+                		sh 'sleep 5'
+            		}
+		}
+	}
+}
