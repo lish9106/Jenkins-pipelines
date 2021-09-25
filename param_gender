@@ -9,8 +9,8 @@ pipeline {
         stage('PERSON_DETAILS'){
             steps {
                 script {
-                    def NAME= "${param.NAME}"
-                    def GENDER= "${param.GENDER}"
+                    def NAME= "${params.NAME}"
+                    def GENDER= "${params.GENDER}"
                     if(GENDER == MALE) {
                         echo "Mr. $NAME"
                     }
