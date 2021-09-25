@@ -1,0 +1,13 @@
+pipeline {
+    agent { label 'J-slave-1'}
+    environment {
+        BRANCH = 'DEV'
+    }
+    stages {
+        stage('Branch_Name'){
+            steps {
+                echo "${BRANCH}"
+            }
+        }
+    }
+}
