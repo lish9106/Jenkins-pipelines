@@ -1,17 +1,17 @@
 pipeline {
     agent {label 'J-slave-1'}
     parameters {
-        string(name:'NAME', description:'Enter your name')
-        choice(name:'GENDER', choices:['MALE', 'FEMALE'], description:'Enter your Gender')
+        string(name: 'NAME', description: 'Enter your name')
+        choice(name: 'GENDER', choices: ['MALE', 'FEMALE'], description: 'Enter your Gender')
     }
 
     stages {
         stage('PERSON_DETAILS'){
             steps {
                 script {
-                    def NAME= "${params.NAME}"
-                    def GENDER= "${params.GENDER}"
-                    if(GENDER == MALE) {
+                    def NAME = "${params.NAME}"
+                    def GENDER = "${params.GENDER}"
+                    if(GENDER == "MALE") {
                         echo "Mr. $NAME"
                     }
                     else {
