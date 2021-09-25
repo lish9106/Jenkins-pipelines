@@ -1,0 +1,22 @@
+pipeline {
+    agent {label 'J-slave-1'}
+    parameters {
+        string(name:'NAME', description:'Enter your name')
+        choice(name:'GENDER', choices:['MALE', 'FEMALE'], description:'Enter your Gender')
+    }
+
+    stages {
+        stage('PERSON_DETAILS'){
+            steps{
+                def NAME= "${param.NAME}"
+                def GENDER= "${param.GENDER}"
+                if(GENDER == MALE) {
+                    echo "Mr. $NAME"
+                }
+                else {
+                    echo "Ms. $NAME"
+                }
+            }
+        } 
+    } 
+}         
