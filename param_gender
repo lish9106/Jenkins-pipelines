@@ -7,15 +7,17 @@ pipeline {
 
     stages {
         stage('PERSON_DETAILS'){
-            steps{
-                def NAME= "${param.NAME}"
-                def GENDER= "${param.GENDER}"
-                if(GENDER == MALE) {
-                    echo "Mr. $NAME"
-                }
-                else {
-                    echo "Ms. $NAME"
-                }
+            steps {
+                script {
+                    def NAME= "${param.NAME}"
+                    def GENDER= "${param.GENDER}"
+                    if(GENDER == MALE) {
+                        echo "Mr. $NAME"
+                    }
+                    else {
+                        echo "Ms. $NAME"
+                    }
+                }   
             }
         } 
     } 
