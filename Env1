@@ -1,0 +1,10 @@
+pipeline {
+    agnet {label 'J-slave-1'}
+    stages {
+        stage('Java_install'){
+            steps {
+                echo "${Java}"
+            }
+        }
+    }
+}
